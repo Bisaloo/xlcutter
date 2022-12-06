@@ -50,3 +50,6 @@ rsconnect/
 
 # macOS hidden files
 .DS_Store
+
+# Libreoffice backup files
+.~lock.*.xlsx#

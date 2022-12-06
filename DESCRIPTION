@@ -1,17 +1,22 @@
-Package: readepi
-Title: Import Epidemiological Data into R
-Version: 0.0.1
+Package: xlcutter
+Title: Parse Batches of 'xlsx' Files Based on a Template
+Version: 0.0.0.9000
 Authors@R: 
-    c(person("Thibaut", "Jombart", , "thibaut@data.org", role = c("aut", "cre")),
-      person("Avinash", "Laddha", , "avinash@data.org", role = c("aut")))
-Description: This package implements functions to read epidemiological data from health information systems.
+    person(
+      "Hugo", "Gruson", , "hugo.gruson+R@normalesup.org", 
+      role = c("aut", "cre", "cph"),
+      comment = c(ORCID = "0000-0002-4094-1476")
+    )
+Description: Parse entire folders of non-rectangular 'xlsx' files into a single
+  rectangular and tidy 'data.frame' based on a custom template file defining the 
+  column names of the output.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
-Imports:
-    checkmate
-Suggests: 
-    covr,
-    testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-GB
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.2
+Imports: 
+    tidyxl
+Suggests: 
+    testthat (>= 3.0.0)
