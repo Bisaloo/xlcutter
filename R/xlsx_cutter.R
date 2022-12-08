@@ -40,10 +40,19 @@ xlsx_cutter <- function(
     data_folder, pattern = "\\.xlsx$", full.names = TRUE, recursive = TRUE
   )
 
+  template <- tidyxl::xlsx_cells(template_file, template_sheet)
+
+  template <- template[
+    detect_with_markers(template$character, marker_open, marker_close),
+  ]
+
+  coords <- template[, c("row", "col")]
+  noms <- remove_markers(template$character, marker_open, marker_close)
+
   res <- lapply(
     files,
     single_xlsx_cutter,
-    template_file, data_sheet, template_sheet, marker_open, marker_close
+    template_file, data_sheet, coords, noms
   )
 
   res <- as.data.frame(do.call(rbind, res))
@@ -53,18 +62,9 @@ xlsx_cutter <- function(
 }
 
 single_xlsx_cutter <- function(
-    data_file, template_file,
-    data_sheet, template_sheet,
-    marker_open, marker_close
+    data_file, template_file, data_sheet,
+    coords, noms
   ) {
-
-  template <- tidyxl::xlsx_cells(template_file, template_sheet)
-
-  template <- template[
-    detect_with_markers(template$character, marker_open, marker_close),
-  ]
-
-  coords <- template[, c("row", "col")]
 
   d <- tidyxl::xlsx_cells(data_file, sheets = data_sheet)
 
@@ -79,7 +79,7 @@ single_xlsx_cutter <- function(
 
   setNames(
     d$res,
-    remove_markers(template$character, marker_open, marker_close)
+    noms
   )
 
 }
