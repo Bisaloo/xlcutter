@@ -71,7 +71,9 @@ single_xlsx_cutter <- function(
   d <- merge(coords, d, all = FALSE, all.x = TRUE)
   d <- d[order(d$row, d$col), ]
 
-  d$res[d$data_type == "error"]     <- NA_character_
+  d$data_type[is.na(d$data_type)] <- "missing"
+
+  d$res[d$data_type %in% c("error", "missing")] <- NA_character_
   d$res[d$data_type == "logical"]   <- d$logical[d$data_type == "logical"]
   d$res[d$data_type == "numeric"]   <- d$numeric[d$data_type == "numeric"]
   d$res[d$data_type == "date"]      <- format(d$date[d$data_type == "date"])
