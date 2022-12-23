@@ -11,7 +11,7 @@
         "row.names": {
           "type": "integer",
           "attributes": {},
-          "value": [1, 2]
+          "value": [1, 2, 3]
         },
         "class": {
           "type": "character",
@@ -23,42 +23,42 @@
         {
           "type": "character",
           "attributes": {},
-          "value": ["Paul", "Marianne"]
+          "value": ["Leon", "Paul", "Marianne"]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [35, 35]
+          "value": [35, 35, 35]
         },
         {
           "type": "character",
           "attributes": {},
-          "value": ["Dupont", "Lebrun"]
+          "value": ["Bedu", "Dupont", "Lebrun"]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [35, 36.25]
+          "value": [29, 35, 36.25]
         },
         {
           "type": "character",
           "attributes": {},
-          "value": ["Lydia", "Lydia"]
+          "value": [null, "Lydia", "Lydia"]
         },
         {
           "type": "character",
           "attributes": {},
-          "value": ["Dubois", "Dubois"]
+          "value": ["Dubois", "Dubois", "Dubois"]
         },
         {
           "type": "character",
           "attributes": {},
-          "value": ["2022-01-03", "2022-01-03"]
+          "value": ["2022-01-03", "2022-01-03", "2022-01-03"]
         },
         {
           "type": "character",
           "attributes": {},
-          "value": ["2022-01-07", "2022-01-07"]
+          "value": ["2022-01-07", "2022-01-07", "2022-01-07"]
         }
       ]
     }
