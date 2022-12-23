@@ -5,7 +5,7 @@
 \title{Create a data.frame from a folder of non-rectangular excel files}
 \usage{
 xlsx_cutter(
-  data_folder,
+  data_files,
   template_file,
   data_sheet = 1,
   template_sheet = 1,
@@ -14,7 +14,7 @@ xlsx_cutter(
 )
 }
 \arguments{
-\item{data_folder}{path to the folder holder the xlsx files to parse}
+\item{data_files}{vector of paths to the xlsx files to parse}
 
 \item{template_file}{path to the template file to use as a model to parse the
 xlsx files in \code{data_folder}}
@@ -33,14 +33,19 @@ defined custom template
 }
 \examples{
 
-data_folder <- system.file("example", "timesheet", package = "xlcutter")
+data_files <- list.files(
+  system.file("example", "timesheet", package = "xlcutter"),
+  pattern = "\\\\.xlsx$",
+  full.names = TRUE
+)
+
 template_file <- system.file(
   "example", "timesheet_template.xlsx",
   package = "xlcutter"
 )
 
 xlsx_cutter(
-  data_folder,
+  data_files,
   template_file
 )
 

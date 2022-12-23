@@ -1,0 +1,23 @@
+---
+title: "Design decisions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Design decisions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This vignette discusses some design decisions made in this package and the rationale behind them.
+
+## Why do I need to pass a list of files to parse rather than an entire folder?
+
+A very early prototype of this package used this approach of taking the path of an entire folder. But we quickly noticed it severely lacked flexibility. For example, some users may have subfolders in their main folder, and may want or not to parse files within these subfolders. Alternatively, they may want to exclude some files in the folder based on a certain pattern in the file name. Handling this in `{xlcutter}` would force us to add extra arguments (such as `recursive`, `pattern`, etc.), that we would to pass to `list.files()`. Or users may even want to pass individual files scattered across many folders.
+
+Passing a list of files rather than an entire folder sacrifices a tiny amount of ease of use for a large increase in flexibility.

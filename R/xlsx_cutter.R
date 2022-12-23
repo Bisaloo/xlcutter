@@ -3,7 +3,7 @@
 #' Create a data.frame from a folder of non-rectangular excel files based on a
 #' defined custom template
 #'
-#' @param data_folder path to the folder holder the xlsx files to parse
+#' @param data_files vector of paths to the xlsx files to parse
 #' @param template_file path to the template file to use as a model to parse the
 #'   xlsx files in `data_folder`
 #' @param data_sheet sheet id to extract from the xlsx files
@@ -19,26 +19,27 @@
 #'
 #' @examples
 #'
-#' data_folder <- system.file("example", "timesheet", package = "xlcutter")
+#' data_files <- list.files(
+#'   system.file("example", "timesheet", package = "xlcutter"),
+#'   pattern = "\\.xlsx$",
+#'   full.names = TRUE
+#' )
+#'
 #' template_file <- system.file(
 #'   "example", "timesheet_template.xlsx",
 #'   package = "xlcutter"
 #' )
 #'
 #' xlsx_cutter(
-#'   data_folder,
+#'   data_files,
 #'   template_file
 #' )
 #'
 xlsx_cutter <- function(
-    data_folder, template_file,
+    data_files, template_file,
     data_sheet = 1, template_sheet = 1,
     marker_open = "{{", marker_close = "}}"
   ) {
-
-  files <- list.files(
-    data_folder, pattern = "\\.xlsx$", full.names = TRUE, recursive = TRUE
-  )
 
   template <- tidyxl::xlsx_cells(template_file, template_sheet)
 
@@ -50,7 +51,7 @@ xlsx_cutter <- function(
   noms <- remove_markers(template$character, marker_open, marker_close)
 
   res <- lapply(
-    files,
+    data_files,
     single_xlsx_cutter,
     template_file, data_sheet, coords, noms
   )
