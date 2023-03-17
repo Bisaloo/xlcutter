@@ -23,3 +23,5 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
+URL: https://github.com/Bisaloo/xlcutter
+BugReports: https://github.com/Bisaloo/xlcutter/issues
