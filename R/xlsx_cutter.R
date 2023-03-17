@@ -12,6 +12,9 @@
 #' @param marker_open,marker_close character marker to mark the variables to
 #'   extract in the `template_file`
 #'
+#' @returns A rectangular `data.frame` with columns as defined in the template.
+#' Column types are determined automatically by `type.convert()`
+#'
 #' @importFrom stats setNames
 #' @importFrom utils type.convert
 #'

@@ -27,6 +27,10 @@ parse the xlsx files in \code{data_folder}}
 \item{marker_open, marker_close}{character marker to mark the variables to
 extract in the \code{template_file}}
 }
+\value{
+A rectangular \code{data.frame} with columns as defined in the template.
+Column types are determined automatically by \code{type.convert()}
+}
 \description{
 Create a data.frame from a folder of non-rectangular excel files based on a
 defined custom template
