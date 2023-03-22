@@ -14,6 +14,22 @@ test_that("valid and invalid templates are indentified", {
     )
   )
 
+  expect_true(
+    validate_xltemplate(
+      system.file("example", "template_fluff.xlsx", package = "xlcutter")
+    )
+  )
+
+
+  expect_warning(
+    expect_false(
+      validate_xltemplate(
+        system.file("example", "template_fluff.xlsx", package = "xlcutter"),
+        minimal = TRUE
+      )
+    )
+  )
+
 })
 
 test_that("error argument works", {
