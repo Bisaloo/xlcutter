@@ -70,4 +70,3 @@ test_that("plural works in message", {
   )
 
 })
-

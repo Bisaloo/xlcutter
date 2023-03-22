@@ -27,11 +27,11 @@
 #'   minimal = TRUE
 #' )
 validate_xltemplate <- function(
-    template_file,
-    template_sheet = 1,
-    marker_open = "{{", marker_close = "}}",
-    minimal = FALSE,
-    error = FALSE
+  template_file,
+  template_sheet = 1,
+  marker_open = "{{", marker_close = "}}",
+  minimal = FALSE,
+  error = FALSE
 ) {
 
   cnd_msg <- NULL
@@ -51,7 +51,7 @@ validate_xltemplate <- function(
         ngettext(
           nrow(template) - nrow(template_minimal),
           "%s and includes %d field not defining any variable",
-          "%s and includes %d fields not defining any variable",
+          "%s and includes %d fields not defining any variable"
         ),
         "The provided template is not minimal",
         nrow(template) - nrow(template_minimal)

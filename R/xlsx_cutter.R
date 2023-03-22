@@ -39,10 +39,10 @@
 #' )
 #'
 xlsx_cutter <- function(
-    data_files, template_file,
-    data_sheet = 1, template_sheet = 1,
-    marker_open = "{{", marker_close = "}}"
-  ) {
+  data_files, template_file,
+  data_sheet = 1, template_sheet = 1,
+  marker_open = "{{", marker_close = "}}"
+) {
 
   template <- tidyxl::xlsx_cells(template_file, template_sheet)
 
@@ -66,9 +66,9 @@ xlsx_cutter <- function(
 }
 
 single_xlsx_cutter <- function(
-    data_file, template_file, data_sheet,
-    coords, noms
-  ) {
+  data_file, template_file, data_sheet,
+  coords, noms
+) {
 
   d <- tidyxl::xlsx_cells(data_file, sheets = data_sheet)
 
