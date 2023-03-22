@@ -1,0 +1,104 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "xlcutter",
+  "description": "Parse entire folders of non-rectangular 'xlsx' files into a single rectangular and tidy 'data.frame' based on a custom template file defining the column names of the output.",
+  "name": "xlcutter: Parse Batches of 'xlsx' Files Based on a Template",
+  "relatedLink": "https://hugogruson.fr/xlcutter/",
+  "codeRepository": "https://github.com/Bisaloo/xlcutter",
+  "issueTracker": "https://github.com/Bisaloo/xlcutter/issues",
+  "license": "https://spdx.org/licenses/MIT",
+  "version": "0.1.0",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.2.2 Patched (2022-11-10 r83330)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Hugo",
+      "familyName": "Gruson",
+      "email": "hugo.gruson+R@normalesup.org",
+      "@id": "https://orcid.org/0000-0002-4094-1476"
+    }
+  ],
+  "copyrightHolder": [
+    {
+      "@type": "Person",
+      "givenName": "Hugo",
+      "familyName": "Gruson",
+      "email": "hugo.gruson+R@normalesup.org",
+      "@id": "https://orcid.org/0000-0002-4094-1476"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Hugo",
+      "familyName": "Gruson",
+      "email": "hugo.gruson+R@normalesup.org",
+      "@id": "https://orcid.org/0000-0002-4094-1476"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    }
+  ],
+  "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "tidyxl",
+      "name": "tidyxl",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidyxl"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "767.235KB",
+  "readme": "https://github.com/Bisaloo/xlcutter/blob/main/README.md",
+  "contIntegration": ["https://github.com/Bisaloo/xlcutter/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/Bisaloo/xlcutter?branch=main"],
+  "developmentStatus": "https://www.reconverse.org/lifecycle.html#concept",
+  "keywords": ["data-extraction", "excel", "r", "r-package", "tidy-data", "non-rectangular-data"]
+}
