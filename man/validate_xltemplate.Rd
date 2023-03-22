@@ -9,6 +9,7 @@ validate_xltemplate(
   template_sheet = 1,
   marker_open = "{{",
   marker_close = "}}",
+  minimal = FALSE,
   error = FALSE
 )
 }
@@ -21,6 +22,10 @@ parse the xlsx files in \code{data_folder}}
 
 \item{marker_open, marker_close}{character marker to mark the variables to
 extract in the \code{template_file}}
+
+\item{minimal}{Logical (default to \code{FALSE}) saying whether the template
+should contain only variables delimited by markers and nothing else, or
+if extra text can be included (and ignored)}
 
 \item{error}{Logical (defaults to \code{TRUE}) saying whether failed validations
 should result in an error (\code{TRUE}) or a warning (\code{FALSE})}
@@ -37,9 +42,13 @@ validate_xltemplate(
   system.file("example", "timesheet_template.xlsx", package = "xlcutter")
 )
 
-# Invalid template
+# Invalid templates
 validate_xltemplate(
   system.file("example", "template_duped_vars.xlsx", package = "xlcutter")
 )
 
+validate_xltemplate(
+  system.file("example", "template_fluff.xlsx", package = "xlcutter"),
+  minimal = TRUE
+)
 }
