@@ -50,6 +50,12 @@ test_that("detect_with_markers() works", {
     c(TRUE, FALSE, FALSE)
   )
 
+  # Still works on longer input with NAs
+  expect_identical(
+    detect_with_markers(c("*_col1_*", "_col2_", "*_col3_", NA), "*_", "_*"),
+    c(TRUE, FALSE, FALSE, FALSE)
+  )
+
 })
 
 test_that("remove_markers() works", {
