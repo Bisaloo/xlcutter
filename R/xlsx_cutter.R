@@ -51,7 +51,17 @@ xlsx_cutter <- function(
   ]
 
   coords <- template[, c("row", "col")]
-  noms <- remove_markers(template$character, marker_open, marker_close)
+  # We used to have a dedicated remove_markers() function which specifically
+  # removed the markers with a regex.
+  # BUT, since we already extracted strings with the markers, we can more simply
+  # and more efficiently remove the markers based on nchar
+  noms <- trimws(
+    substr(
+      template$character,
+      nchar(marker_open) + 1,
+      nchar(template$character) - nchar(marker_close)
+    )
+  )
 
   res <- lapply(
     data_files,
