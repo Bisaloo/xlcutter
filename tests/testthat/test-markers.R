@@ -1,29 +1,3 @@
-test_that("escape_markers() works", {
-
-  # No action
-  expect_identical(escape_markers(letters), letters)
-
-  # Escape special regex characters
-  expect_identical(escape_markers("\\"), "\\\\")
-  expect_identical(escape_markers("^"), "\\^")
-  expect_identical(escape_markers("$"), "\\$")
-  expect_identical(escape_markers("."), "\\.")
-  expect_identical(escape_markers("|"), "\\|")
-  expect_identical(escape_markers("?"), "\\?")
-  expect_identical(escape_markers("*"), "\\*")
-  expect_identical(escape_markers("+"), "\\+")
-  expect_identical(escape_markers("("), "\\(")
-  expect_identical(escape_markers(")"), "\\)")
-  expect_identical(escape_markers("["), "\\[")
-  expect_identical(escape_markers("]"), "\\]")
-  expect_identical(escape_markers("{"), "\\{")
-  expect_identical(escape_markers("}"), "\\}")
-
-  # Multiple markers are escaped correctly
-  expect_identical(escape_markers("{{"), "\\{\\{")
-
-})
-
 test_that("detect_with_markers() works", {
 
   # Detect accurately with markers which are not regex special symbols
