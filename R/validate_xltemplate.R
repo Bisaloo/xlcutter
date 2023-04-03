@@ -59,7 +59,13 @@ validate_xltemplate <- function(
     )
   }
 
-  noms <- remove_markers(template_minimal$character, marker_open, marker_close)
+  noms <- trimws(
+    substr(
+      template_minimal$character,
+      nchar(marker_open) + 1,
+      nchar(template_minimal$character) - nchar(marker_close)
+    )
+  )
 
   has_dups <- anyDuplicated(noms) > 0
 
