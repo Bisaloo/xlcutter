@@ -80,11 +80,16 @@ single_xlsx_cutter <- function(
   coords, noms
 ) {
 
-  d <- tidyxl::xlsx_cells(data_file, sheets = data_sheet)
+  d <- tidyxl::xlsx_cells(
+    data_file,
+    sheets = data_sheet,
+    include_blank_cells = FALSE
+  )
 
   d <- merge(coords, d, all = FALSE, all.x = TRUE)
   d <- d[order(d$row, d$col), ]
 
+  # Present in template but not in file. Introduced by merge(all.x = TRUE)
   d$data_type[is.na(d$data_type)] <- "missing"
 
   d$res[d$data_type %in% c("error", "missing")] <- NA_character_
