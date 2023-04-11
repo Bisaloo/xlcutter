@@ -48,6 +48,9 @@
     <a class="dropdown-item" href="articles/design.html">Design decisions</a>
   </div>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
+</li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -76,8 +79,11 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of this package from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install the latest stable version of this package from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"xlcutter"</span><span class="op">)</span></span></code></pre></div>
+<p>or the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Bisaloo/xlcutter"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -93,25 +99,32 @@
 <div class="figure">
 <img src="reference/figures/screenshot_template.png" alt=""><p class="caption">Screenshot of a template for the timesheet example</p>
 </div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Bisaloo/xlcutter" class="external-link">xlcutter</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">data_folder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"example"</span>, <span class="st">"timesheet"</span>, package <span class="op">=</span> <span class="st">"xlcutter"</span><span class="op">)</span></span>
+<span><span class="va">data_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"example"</span>, <span class="st">"timesheet"</span>, package <span class="op">=</span> <span class="st">"xlcutter"</span><span class="op">)</span>,</span>
+<span>  pattern <span class="op">=</span> <span class="st">"\\.xlsx$"</span>,</span>
+<span>  full.names <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
 <span><span class="va">template_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span></span>
 <span>  <span class="st">"example"</span>, <span class="st">"timesheet_template.xlsx"</span>,</span>
 <span>  package <span class="op">=</span> <span class="st">"xlcutter"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/xlsx_cutter.html">xlsx_cutter</a></span><span class="op">(</span></span>
-<span>  <span class="va">data_folder</span>,</span>
+<span>  <span class="va">data_files</span>,</span>
 <span>  <span class="va">template_file</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt;   employee_firstname contract_hours employee_lastname realised_hours</span></span>
-<span><span class="co">#&gt; 1               Paul             35            Dupont          35.00</span></span>
-<span><span class="co">#&gt; 2           Marianne             35            Lebrun          36.25</span></span>
+<span><span class="co">#&gt; 1               Leon             35              Bedu          29.00</span></span>
+<span><span class="co">#&gt; 2               Paul             35            Dupont          35.00</span></span>
+<span><span class="co">#&gt; 3           Marianne             35            Lebrun          36.25</span></span>
 <span><span class="co">#&gt;   manager_firstname manager_lastname period_start period_end</span></span>
-<span><span class="co">#&gt; 1             Lydia           Dubois   2022-01-03 2022-01-07</span></span>
-<span><span class="co">#&gt; 2             Lydia           Dubois   2022-01-03 2022-01-07</span></span></code></pre></div>
+<span><span class="co">#&gt; 1              &lt;NA&gt;           Dubois   2022-01-03 2022-01-07</span></span>
+<span><span class="co">#&gt; 2             Lydia           Dubois   2022-01-03 2022-01-07</span></span>
+<span><span class="co">#&gt; 3             Lydia           Dubois   2022-01-03 2022-01-07</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="other-example-of-use-cases">Other example of use cases<a class="anchor" aria-label="anchor" href="#other-example-of-use-cases"></a>
@@ -162,7 +175,7 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></li>
+<li><a href="https://opensource.org/license/mit" class="external-link"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></li>
 <li><a href="https://github.com/Bisaloo/xlcutter/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/Bisaloo/xlcutter/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://app.codecov.io/gh/Bisaloo/xlcutter?branch=main" class="external-link"><img src="https://codecov.io/gh/Bisaloo/xlcutter/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://www.reconverse.org/lifecycle.html#concept" class="external-link"><img src="https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-concept.svg" alt="lifecycle-concept"></a></li>
