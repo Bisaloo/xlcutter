@@ -28,8 +28,13 @@ defining the column names of the output.
 
 ## Installation
 
-You can install the development version of this package from
-[GitHub](https://github.com/) with:
+You can install the latest stable version of this package from CRAN:
+
+``` r
+install.packages("xlcutter")
+```
+
+or the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
@@ -58,14 +63,19 @@ any custom marker, with the default being `{{ column_name }}`.
 ```{r}
 library(xlcutter)
 
-data_folder <- system.file("example", "timesheet", package = "xlcutter")
+data_files <- list.files(
+  system.file("example", "timesheet", package = "xlcutter"),
+  pattern = "\\.xlsx$",
+  full.names = TRUE
+)
+
 template_file <- system.file(
   "example", "timesheet_template.xlsx",
   package = "xlcutter"
 )
 
 xlsx_cutter(
-  data_folder,
+  data_files,
   template_file
 )
 ```
@@ -76,5 +86,3 @@ Other typical use cases for this package could be:
 
 - an hospital that wants to collate non-rectangular information sheets from
 different patients into a single rectangular dataset
-
-

@@ -19,8 +19,13 @@ custom template file defining the column names of the output.
 
 ## Installation
 
-You can install the development version of this package from
-[GitHub](https://github.com/) with:
+You can install the latest stable version of this package from CRAN:
+
+``` r
+install.packages("xlcutter")
+```
+
+or the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
@@ -53,22 +58,29 @@ example](man/figures/screenshot_template.png)
 ``` r
 library(xlcutter)
 
-data_folder <- system.file("example", "timesheet", package = "xlcutter")
+data_files <- list.files(
+  system.file("example", "timesheet", package = "xlcutter"),
+  pattern = "\\.xlsx$",
+  full.names = TRUE
+)
+
 template_file <- system.file(
   "example", "timesheet_template.xlsx",
   package = "xlcutter"
 )
 
 xlsx_cutter(
-  data_folder,
+  data_files,
   template_file
 )
 #>   employee_firstname contract_hours employee_lastname realised_hours
-#> 1               Paul             35            Dupont          35.00
-#> 2           Marianne             35            Lebrun          36.25
+#> 1               Leon             35              Bedu          29.00
+#> 2               Paul             35            Dupont          35.00
+#> 3           Marianne             35            Lebrun          36.25
 #>   manager_firstname manager_lastname period_start period_end
-#> 1             Lydia           Dubois   2022-01-03 2022-01-07
+#> 1              <NA>           Dubois   2022-01-03 2022-01-07
 #> 2             Lydia           Dubois   2022-01-03 2022-01-07
+#> 3             Lydia           Dubois   2022-01-03 2022-01-07
 ```
 
 ## Other example of use cases
