@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # xlcutter
 
 <!-- badges: start -->
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit)
 [![R-CMD-check](https://github.com/Bisaloo/xlcutter/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Bisaloo/xlcutter/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/Bisaloo/xlcutter/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Bisaloo/xlcutter?branch=main)
 [![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-concept.svg)](https://www.reconverse.org/lifecycle.html#concept)
