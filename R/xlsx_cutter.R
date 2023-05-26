@@ -44,7 +44,11 @@ xlsx_cutter <- function(
   marker_open = "{{", marker_close = "}}"
 ) {
 
-  template <- tidyxl::xlsx_cells(template_file, template_sheet)
+  template <- tidyxl::xlsx_cells(
+    template_file,
+    template_sheet,
+    include_blank_cells = FALSE
+  )
 
   template <- template[
     detect_with_markers(template$character, marker_open, marker_close),
