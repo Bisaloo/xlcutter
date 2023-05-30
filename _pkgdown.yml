@@ -2,3 +2,7 @@ url: https://hugogruson.fr/xlcutter/
 template:
   bootstrap: 5
 
+news:
+  releases:
+  - text: "Version 0.1.0"
+    href: https://hugogruson.fr/posts/xlcutter-0-1-0/
