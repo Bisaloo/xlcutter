@@ -1,6 +1,6 @@
 Package: xlcutter
 Title: Parse Batches of 'xlsx' Files Based on a Template
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     person(
       "Hugo", "Gruson", , "hugo.gruson+R@normalesup.org", 
