@@ -86,9 +86,13 @@ single_xlsx_cutter <- function(
 
   d <- tidyxl::xlsx_cells(
     data_file,
-    sheets = data_sheet,
-    include_blank_cells = FALSE
+    sheets = data_sheet
   )
+  # FIXME: this is not ideal because we'd rather not read blank cells at all
+  # by setting `include_blank_cells = FALSE` in `tidyxl::xlsx_cells()`. But
+  # this is currently failing in the case where we have blank cells with
+  # comments: https://github.com/nacnudus/tidyxl/issues/91
+  d <- d[!d$is_blank, ]
 
   d <- merge(coords, d, all = FALSE, all.x = TRUE)
   d <- d[order(d$row, d$col), ]
