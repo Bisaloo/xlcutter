@@ -69,9 +69,23 @@ xlsx_cutter <- function(
 
   res <- lapply(
     data_files,
-    single_xlsx_cutter,
-    template_file, data_sheet, coords, noms
+    function(f) {
+      tryCatch(
+        single_xlsx_cutter(f, template_file, data_sheet, coords, noms),
+        warning = function(c) NULL,
+        error = function(c) NULL
+      )
+    }
   )
+
+  failed <- vapply(res, is.null, logical(1))
+
+  if (any(failed)) {
+    warning(
+      "parsing failed for ", sum(failed), " files:\n",
+      toString(data_files[failed])
+    )
+  }
 
   res <- as.data.frame(do.call(rbind, res))
 
