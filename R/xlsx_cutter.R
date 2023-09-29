@@ -100,9 +100,9 @@ single_xlsx_cutter <- function(
 
   d <- tidyxl::xlsx_cells(
     data_file,
-    sheets = data_sheet,
-    include_blank_cells = FALSE
+    sheets = data_sheet
   )
+  d <- d[!is_blank, ]
 
   d <- merge(coords, d, all = FALSE, all.x = TRUE)
   d <- d[order(d$row, d$col), ]
