@@ -63,3 +63,9 @@
       ]
     }
 
+# failures don't stop loop
+
+    parsing failed for 2 files:
+      - nonexistent_file.xlsx
+      - nonexistent_file2.xlsx
+

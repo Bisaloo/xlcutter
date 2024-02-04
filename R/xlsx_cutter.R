@@ -82,8 +82,9 @@ xlsx_cutter <- function(
 
   if (any(failed)) {
     warning(
-      "parsing failed for ", sum(failed), " files:\n",
-      toString(data_files[failed])
+      "parsing failed for ", sum(failed), " files:\n  - ",
+      paste(data_files[failed], collapse = "\n  - "),
+      call. = FALSE
     )
   }
 
