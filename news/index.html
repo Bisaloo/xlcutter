@@ -58,7 +58,9 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="xlcutter-development-version">xlcutter (development version)<a class="anchor" aria-label="anchor" href="#xlcutter-development-version"></a></h2>
-</div>
+<ul><li>
+<code><a href="../reference/xlsx_cutter.html">xlsx_cutter()</a></code> internal loop won’t be interrupted in case a file can’t be parsed. This avoid loosing potentially hours of computation when one of the last files fails and made the entire function crash. All parsing issues are now returned as warnings at the end (<a href="https://github.com/Bisaloo/xlcutter/issues/13" class="external-link">#13</a>, <a href="https://github.com/Bisaloo" class="external-link">@Bisaloo</a>).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.1" id="xlcutter-011">xlcutter 0.1.1<a class="anchor" aria-label="anchor" href="#xlcutter-011"></a></h2><p class="text-muted">CRAN release: 2023-10-22</p>
 <ul><li>
