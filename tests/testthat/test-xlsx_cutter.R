@@ -19,3 +19,16 @@ test_that("xlsx_cutter() works", {
   )
 
 })
+
+test_that("failures don't stop loop", {
+
+  expect_snapshot_warning(
+    res <- xlsx_cutter( # nolintr: assignment_linter.
+      c("nonexistent_file.xlsx", "nonexistent_file2.xlsx", data_files),
+      template_file
+    )
+  )
+
+  expect_identical(nrow(res), length(data_files))
+
+})
