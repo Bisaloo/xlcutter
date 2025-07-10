@@ -29,11 +29,11 @@
 validate_xltemplate <- function(
   template_file,
   template_sheet = 1,
-  marker_open = "{{", marker_close = "}}",
+  marker_open = "{{",
+  marker_close = "}}",
   minimal = FALSE,
   error = FALSE
 ) {
-
   cnd_msg <- NULL
 
   template <- tidyxl::xlsx_cells(template_file, template_sheet)
@@ -99,5 +99,4 @@ validate_xltemplate <- function(
   valid <- !has_dups && (!has_fluff || !minimal)
 
   return(valid)
-
 }

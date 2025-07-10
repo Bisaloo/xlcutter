@@ -39,11 +39,13 @@
 #' )
 #'
 xlsx_cutter <- function(
-  data_files, template_file,
-  data_sheet = 1, template_sheet = 1,
-  marker_open = "{{", marker_close = "}}"
+  data_files,
+  template_file,
+  data_sheet = 1,
+  template_sheet = 1,
+  marker_open = "{{",
+  marker_close = "}}"
 ) {
-
   template <- tidyxl::xlsx_cells(
     template_file,
     template_sheet,
@@ -82,7 +84,9 @@ xlsx_cutter <- function(
 
   if (any(failed)) {
     warning(
-      "parsing failed for ", sum(failed), " files:\n  - ",
+      "parsing failed for ",
+      sum(failed),
+      " files:\n  - ",
       paste(data_files[failed], collapse = "\n  - "),
       call. = FALSE
     )
@@ -91,14 +95,15 @@ xlsx_cutter <- function(
   res <- as.data.frame(do.call(rbind, res))
 
   type.convert(res, as.is = TRUE)
-
 }
 
 single_xlsx_cutter <- function(
-  data_file, template_file, data_sheet,
-  coords, noms
+  data_file,
+  template_file,
+  data_sheet,
+  coords,
+  noms
 ) {
-
   d <- tidyxl::xlsx_cells(
     data_file,
     sheets = data_sheet
@@ -116,14 +121,13 @@ single_xlsx_cutter <- function(
   d$data_type[is.na(d$data_type)] <- "missing"
 
   d$res[d$data_type %in% c("error", "missing")] <- NA_character_
-  d$res[d$data_type == "logical"]   <- d$logical[d$data_type == "logical"]
-  d$res[d$data_type == "numeric"]   <- d$numeric[d$data_type == "numeric"]
-  d$res[d$data_type == "date"]      <- format(d$date[d$data_type == "date"])
+  d$res[d$data_type == "logical"] <- d$logical[d$data_type == "logical"]
+  d$res[d$data_type == "numeric"] <- d$numeric[d$data_type == "numeric"]
+  d$res[d$data_type == "date"] <- format(d$date[d$data_type == "date"])
   d$res[d$data_type == "character"] <- d$character[d$data_type == "character"]
 
   setNames(
     d$res,
     noms
   )
-
 }

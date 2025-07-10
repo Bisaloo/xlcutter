@@ -1,5 +1,4 @@
 test_that("valid and invalid templates are indentified", {
-
   expect_true(
     validate_xltemplate(
       system.file("example", "timesheet_template.xlsx", package = "xlcutter")
@@ -20,7 +19,6 @@ test_that("valid and invalid templates are indentified", {
     )
   )
 
-
   expect_warning(
     expect_false(
       validate_xltemplate(
@@ -29,11 +27,9 @@ test_that("valid and invalid templates are indentified", {
       )
     )
   )
-
 })
 
 test_that("error argument works", {
-
   expect_no_error(
     expect_warning(
       validate_xltemplate(
@@ -50,11 +46,9 @@ test_that("error argument works", {
       )
     )
   )
-
 })
 
 test_that("plural works in message", {
-
   expect_warning(
     validate_xltemplate(
       system.file("example", "template_duped_var.xlsx", package = "xlcutter")
@@ -68,5 +62,4 @@ test_that("plural works in message", {
     ),
     "are duplicated"
   )
-
 })

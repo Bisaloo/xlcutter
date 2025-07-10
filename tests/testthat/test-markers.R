@@ -1,5 +1,4 @@
 test_that("detect_with_markers() works", {
-
   # Detect accurately with markers which are not regex special symbols
   expect_true(detect_with_markers("_mycol_", "_", "_"))
   expect_false(detect_with_markers("mycol", "_", "_"))
@@ -29,5 +28,4 @@ test_that("detect_with_markers() works", {
     detect_with_markers(c("*_col1_*", "_col2_", "*_col3_", NA), "*_", "_*"),
     c(TRUE, FALSE, FALSE, FALSE)
   )
-
 })
