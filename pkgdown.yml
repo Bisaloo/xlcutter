@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   design: design.html
-last_built: 2025-07-10T14:25Z
+last_built: 2025-07-28T18:05Z
 urls:
   reference: https://hugogruson.fr/xlcutter/reference
   article: https://hugogruson.fr/xlcutter/articles
